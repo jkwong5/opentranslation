@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>PubRTC + Mobile</title>
@@ -6,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css" />
-    <script src="js/modernizr.custom.js"></script>
-	<link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" />
+    <!-- <script src="js/modernizr.custom.js"></script> -->
+	  <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" />
 
 
 </head>
@@ -18,25 +19,25 @@
 <!-- My Phone Number & Dial Areas -->
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
 
-    
+
 <div id="vid-box"></div>
-    
-    
+
+
  <div id="stream-info" hidden="true">
         <button id="end" onclick="end()" hidden="true">Done</button>
         <img src="img/person_dark.png"/>
-        <span id="here-now">0</span>       
-</div> 
+        <span id="here-now">0</span>
+</div>
 
-    
+
 <form name="streamForm" id="stream" action="#" onsubmit="return errWrap(stream,this);">
     <span class="input input--nao">
         <input class="input__field input__field--nao" type="text" name="streamname" placeholder="Enter Stream Name" id="streamname"/>
                 <label class="input__label input__label--nao" for="streamname">
-                    <span class="input__label-content input__label-content--nao">        
+                    <span class="input__label-content input__label-content--nao">
                     </span>
                 </label>
-            <svg class="graphic graphic--nao" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <svg class="graphic graphic--nao" width="300%" height="100%" viewbox="0 0 1200 60" preserveaspectratio="none">
                 <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"/>
             </svg>
     </span>
@@ -45,16 +46,16 @@
             <i class="cbutton__icon fa fa-fw fa fa fa-video-camera"></i>
         </button>
 </form>
-    
+
 
 <form name="watchForm" id="watch" action="#" onsubmit="return errWrap(watch,this);">
     <span class="input input--nao">
         <input class="input__field input__field--nao" type="text" name="number" placeholder="Enter Stream To Watch!"/>
                 <label class="input__label input__label--nao" for="number">
-                    <span class="input__label-content input__label-content--nao">        
+                    <span class="input__label-content input__label-content--nao">
                     </span>
                 </label>
-            <svg class="graphic graphic--nao" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <svg class="graphic graphic--nao" width="300%" height="100%" viewbox="0 0 1200 60" preserveaspectratio="none">
                 <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"/>
             </svg>
     </span>
@@ -62,14 +63,14 @@
        <button class="cbutton cbutton--effect-radomir" type="submit" value="Watch" style="margin-top: 40px; margin-left:-10px">
                 <i class="cbutton__icon fa fa-fw fa fa-eye"></i>
         </button>
-</form>  
-    
+</form>
+
 <div id="inStream" class="ptext">
 	Embed Style: <button onclick="genEmbed(400,600)">Tall</button><button onclick="genEmbed(600,400)">Wide</button><button onclick="genEmbed(500,500)">Square</button><br>
 	<div id="embed-code"></div>
 	<div id="embed-demo"></div>
 </div>
-    
+
 <div id="logs" class="ptext" style="background-color:white"></div>
 
 <div class="ptext">
@@ -109,13 +110,13 @@ function stream(form) {
 	var ctrl = window.ctrl = CONTROLLER(phone);
 	ctrl.ready(function(){
 		form.streamname.style.background="#55ff5b";
-		form.streamname.value = phone.number(); 
-//		form.stream_submit.hidden="true"; 
+		form.streamname.value = phone.number();
+//		form.stream_submit.hidden="true";
 		ctrl.addLocalStream(video_out);
 		ctrl.stream();
         stream_info.hidden=false;
         end_stream.hidden =false;
-		addLog("Streaming to " + streamName); 
+		addLog("Streaming to " + streamName);
 	});
 	ctrl.receive(function(session){
 	    session.connected(function(session){ addLog(session.number + " has joined."); });
@@ -142,11 +143,11 @@ function watch(form){
 			if (isOn) ctrl.joinStream(num);
 			else alert("User is not streaming!");
 		});
-		addLog("Joining stream  " + num); 
+		addLog("Joining stream  " + num);
 	});
 	ctrl.receive(function(session){
-	    session.connected(function(session){ 
-            video_out.appendChild(session.video); 
+	    session.connected(function(session){
+            video_out.appendChild(session.video);
             addLog(session.number + " has joined.");
             stream_info.hidden=false;
         });
@@ -182,7 +183,7 @@ function genEmbed(w,h){
 	embed.width  = w;
 	embed.height = h;
 	embed.setAttribute("frameborder", 0);
-	embed_demo.innerHTML = "<a href='embed_demo.html?stream="+streamName+"&width="+w+"&height="+h+"'>Embed Demo</a>" 
+	embed_demo.innerHTML = "<a href='embed_demo.html?stream="+streamName+"&width="+w+"&height="+h+"'>Embed Demo</a>"
 	embed_code.innerHTML = 'Embed Code: ';
 	embed_code.appendChild(document.createTextNode(embed.outerHTML));
 }

@@ -11,11 +11,11 @@ var express = require('express'),
 // };
 // app.get('/github/*', proxyGitHub);
 
-app.use(express.static(__dirname + './'));
+app.use(express.static(__dirname));
 
 app.get('*', function(request, response) {
   console.log('New request:', request.url);
-  response.sendFile('index.html', { root: '.' });
+  response.sendFile(__dirname + 'index.html', { root: '.' });
 });
 
 app.listen(port, function() {
