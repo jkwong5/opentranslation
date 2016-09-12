@@ -9,7 +9,7 @@ var express = require('express'),
 //     headers: { Authorization: 'token ' + process.env.GITHUB_TOKEN }
 //   }))(request, response);
 // };
-app.get('/github/*', proxyGitHub);
+// app.get('/github/*', proxyGitHub);
 
 app.use(express.static(__dirname + './'));
 
