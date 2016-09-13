@@ -65,19 +65,19 @@
         </button>
 </form>
 
-<div id="inStream" class="ptext">
+<!-- <div id="inStream" class="ptext">
 	Embed Style: <button onclick="genEmbed(400,600)">Tall</button><button onclick="genEmbed(600,400)">Wide</button><button onclick="genEmbed(500,500)">Square</button><br>
 	<div id="embed-code"></div>
 	<div id="embed-demo"></div>
-</div>
+</div> -->
 
-<div id="logs" class="ptext" style="background-color:white"></div>
+<!-- <div id="logs" class="ptext" style="background-color:white"></div>
 
 <div class="ptext">
     <p><b>To Use:</b></p>
     <p>Type a channel to stream to and click Stream.</p>
     <p>In a separate browser window, join the steam you created.</p>
-</div>
+</div> -->
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
 <!-- WebRTC Peer Connections -->
 <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- -->
@@ -104,7 +104,8 @@ function stream(form) {
 	    publish_key   : 'pub-c-561a7378-fa06-4c50-a331-5c0056d0163c', // Your Pub Key
 	    subscribe_key : 'sub-c-17b7db8a-3915-11e4-9868-02ee2ddab7fe', // Your Sub Key
 	    oneway        : true,
-	    broadcast     : true
+	    broadcast     : true,
+      ssl : (('https:' == document.location.protocol) ? true : false)
 	});
 	//phone.debug(function(m){ console.log(m); })
 	var ctrl = window.ctrl = CONTROLLER(phone);
@@ -135,7 +136,8 @@ function watch(form){
 	    number        : "Viewer" + Math.floor(Math.random()*100), // listen on username line else random
 	    publish_key   : 'pub-c-561a7378-fa06-4c50-a331-5c0056d0163c', // Your Pub Key
 	    subscribe_key : 'sub-c-17b7db8a-3915-11e4-9868-02ee2ddab7fe', // Your Sub Key
-	    oneway        : true
+	    oneway        : true,
+      ssl : (('https:' == document.location.protocol) ? true : false)
 	});
 	var ctrl = window.ctrl = CONTROLLER(phone);
 	ctrl.ready(function(){
