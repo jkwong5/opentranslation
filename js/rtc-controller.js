@@ -271,7 +271,6 @@ var CONTROLLER = window.CONTROLLER = function(phone){
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // Request fresh TURN servers from XirSys - Need to explain.
-// room=default&application=default&domain=kevingleason.me&ident=gleasonk&secret=b9066b5e-1f75-11e5-866a-c400956a1e19
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 function get_xirsys_servers() {
     var servers;
@@ -281,9 +280,9 @@ function get_xirsys_servers() {
         data: {
             room: 'default',
             application: 'default',
-            domain: 'kevingleason.me',
-            ident: 'gleasonk',
-            secret: 'b9066b5e-1f75-11e5-866a-c400956a1e19',
+            domain: 'ylocks.com',
+            ident: 'jkwong5',
+            secret: '80315486-7c46-11e6-8677-11e218fca43e',
             secure: 1,
         },
         success: function(res) {

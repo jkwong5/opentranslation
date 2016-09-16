@@ -31,15 +31,15 @@ stream_name.innerHTML = "Currently Watching: " + stream;
 genEmbed(width,height);
 
 
-function genEmbed(w,h){
-	var url = "http://kevingleason.me/SimpleRTC/embed.html?stream=" + stream;
-	var embed    = document.createElement('iframe');
-	embed.src    = url;
-	embed.width  = w;
-	embed.height = h;
-	embed.setAttribute("frameborder", 0);
-	embed_box.innerHTML = embed.outerHTML; // For a preview
-}
+// function genEmbed(w,h){
+// 	var url = "http://kevingleason.me/SimpleRTC/embed.html?stream=" + stream;
+// 	var embed    = document.createElement('iframe');
+// 	embed.src    = url;
+// 	embed.width  = w;
+// 	embed.height = h;
+// 	embed.setAttribute("frameborder", 0);
+// 	embed_box.innerHTML = embed.outerHTML; // For a preview
+// }
 
 // Get URL params
 function urlparams() {
@@ -55,9 +55,9 @@ function urlparams() {
 function handleNoStream(){
 	embed_box.innerHTML="ERROR! Stream not found in URL params.";
 }
-	
+
 }());
-	
+
 </script>
 
 <script>
